@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1789721964 source:c:\users\daham\documents\smarthospitalproject\smarthospital\hospital_data.c
+1789735140 source:c:\users\daham\documents\smarthospitalproject\smarthospital\hospital_data.c
 	<stdio.h>
 	"hospital_data.h"
 
-1789721964 c:\users\daham\documents\smarthospitalproject\smarthospital\hospital_data.h
+1789726245 c:\users\daham\documents\smarthospitalproject\smarthospital\hospital_data.h
 
 1789721964 source:c:\users\daham\documents\smarthospitalproject\smarthospital\main.c
 	<stdio.h>

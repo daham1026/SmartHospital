@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1789721964 source:c:\users\daham\documents\smarthospitalproject\smarthospital\hospital_data.c
+	<stdio.h>
+	"hospital_data.h"
+
+1789721964 c:\users\daham\documents\smarthospitalproject\smarthospital\hospital_data.h
+
+1789721964 source:c:\users\daham\documents\smarthospitalproject\smarthospital\main.c
+	<stdio.h>
+	"hospital_data.h"
+
+1789722569 source:c:\users\daham\documents\smarthospitalproject\smarthospital\bed.c
+
+1789722674 source:c:\users\daham\documents\smarthospitalproject\smarthospital\billing.c
+
+1789722636 source:c:\users\daham\documents\smarthospitalproject\smarthospital\patient.c
+
+1789722756 source:c:\users\daham\documents\smarthospitalproject\smarthospital\reports.c
+
+1789722720 source:c:\users\daham\documents\smarthospitalproject\smarthospital\sorting.c
+

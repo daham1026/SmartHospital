@@ -5,6 +5,7 @@
 int main()
 {
     int bedOccupancy[4][20];
+    int allocatedBed;
 
     printf("===============================================\n");
     printf("             SMART HOSPITAL SYSTEM\n");
@@ -14,6 +15,18 @@ int main()
 
     initializeBeds(bedOccupancy);
     displayHospitalInformation();
+    displayBedStatus(bedOccupancy);
+    allocatedBed = allocateBed(bedOccupancy, 0);
+
+    if (allocatedBed == -1)
+    {
+        printf("\nNo bed available.\n");
+    }
+    else
+    {
+        printf("\nAllocated Bed: %d\n", allocatedBed);
+    }
+
     displayBedStatus(bedOccupancy);
 
     return 0;

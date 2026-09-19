@@ -5,12 +5,12 @@
 
 1789726245 c:\users\daham\documents\smarthospitalproject\smarthospital\hospital_data.h
 
-1789817928 source:c:\users\daham\documents\smarthospitalproject\smarthospital\main.c
+1789826419 source:c:\users\daham\documents\smarthospitalproject\smarthospital\main.c
 	<stdio.h>
 	"hospital_data.h"
 	"bed.h"
 
-1789816831 source:c:\users\daham\documents\smarthospitalproject\smarthospital\bed.c
+1789826208 source:c:\users\daham\documents\smarthospitalproject\smarthospital\bed.c
 	<stdio.h>
 	"bed.h"
 	"hospital_data.h"
@@ -23,5 +23,5 @@
 
 1789722720 source:c:\users\daham\documents\smarthospitalproject\smarthospital\sorting.c
 
-1789816831 c:\users\daham\documents\smarthospitalproject\smarthospital\bed.h
+1789826208 c:\users\daham\documents\smarthospitalproject\smarthospital\bed.h
 

@@ -42,3 +42,20 @@ void displayBedStatus(int bedOccupancy[4][20])
         }
     }
 }
+
+int allocateBed(int bedOccupancy[4][20], int ward)
+{
+    int j;
+
+    for (j = 0; j < wardBeds[ward]; j++)
+    {
+        if (bedOccupancy[ward][j] == 0)
+        {
+            bedOccupancy[ward][j] = 1;
+
+            return j + 1;
+        }
+    }
+
+    return -1;
+}

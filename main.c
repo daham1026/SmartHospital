@@ -37,5 +37,15 @@ int main()
 
     displayBedStatus(bedOccupancy);
 
+    registerPatient(0,
+                    patientID,
+                    patientNames,
+                    patientAge,
+                    patientUrgency,
+                    patientSpecialty,
+                    patientAdmitted,
+                    patientWard,
+                    patientDays);
+
     return 0;
 }

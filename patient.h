@@ -12,4 +12,14 @@ void initializePatients(int patientID[],
                         int patientWard[],
                         int patientDays[]);
 
+void registerPatient(int patientIndex,
+                     int patientID[],
+                     char patientNames[][50],
+                     int patientAge[],
+                     int patientUrgency[],
+                     int patientSpecialty[],
+                     int patientAdmitted[],
+                     int patientWard[],
+                     int patientDays[]);
+
 #endif

@@ -14,6 +14,7 @@ int main()
 
     initializeBeds(bedOccupancy);
     displayHospitalInformation();
+    displayBedStatus(bedOccupancy);
 
     return 0;
 }

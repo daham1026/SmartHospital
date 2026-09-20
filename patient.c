@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "patient.h"
 #include "hospital_data.h"
+#include "bed.h"
 
 void initializePatients(int patientID[],
                         char patientNames[][50],
@@ -39,7 +40,8 @@ void registerPatient(int patientIndex,
                      int patientAdmitted[],
                      int patientWard[],
                      int patientDays[],
-                     int patientBed[])
+                     int patientBed[],
+                     int bedOccupancy[4][20])
 {
     patientID[patientIndex] = 1001 + patientIndex;
 
@@ -69,7 +71,7 @@ void registerPatient(int patientIndex,
     }
 
     printf("Is the patient admitted to a ward? (1 = Yes, 0 = No): ");
-    while (scanf("%d", &patientAdmitted[patientIndex]) !=1 || patientAdmitted[patientIndex] != 1 && patientAdmitted[patientIndex] != 1)
+    while (scanf("%d", &patientAdmitted[patientIndex]) !=1 ||( patientAdmitted[patientIndex] != 1 && patientAdmitted[patientIndex] != 0))
    {
     printf("\nInvalid choice.\n\n");
       while(getchar() !='\n');
@@ -92,15 +94,32 @@ void registerPatient(int patientIndex,
     while ( scanf("%d", &patientDays[patientIndex])!=1 || patientDays[patientIndex] < 1 || patientDays[patientIndex] > 365)
     {
         printf("\nInvalid number of days.\n\n ");
-          while(getchar() !='\n');
-         printf("Days Admitted: ");
+        while(getchar() !='\n');
+        printf("Days Admitted: ");
     }
-}
 
+     patientBed[patientIndex] = allocateBed(bedOccupancy, patientWard[patientIndex] - 1);
+
+    if (patientBed[patientIndex] == -1)
+    {
+        printf("\nNo beds are available in this ward.\n");
+
+        patientAdmitted[patientIndex] = 0;
+        patientWard[patientIndex] = -1;
+        patientBed[patientIndex] = -1;
+        patientDays[patientIndex] = 0;
+    }
     else
     {
-        patientWard[patientIndex] = -1;
-        patientDays[patientIndex] = 0;
+        printf("Bed Assigned: %d\n",
+               patientBed[patientIndex]);
+    }
+}
+    else
+    {
+    patientWard[patientIndex] = -1;
+    patientBed[patientIndex] = -1;
+    patientDays[patientIndex] = 0;
     }
 
     printf("\nPatient registered successfully.\n");

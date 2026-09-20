@@ -5,6 +5,7 @@
 #include "billing.h"
 #include "sorting.h"
 #include "reports.h"
+#include "file_handling.h"
 
 int main()
 {
@@ -44,12 +45,14 @@ int main()
      printf("4. Display Patient Priority Queue\n");
      printf("5. Display Patient Bill\n");
      printf("6. Display Performance Report\n");
-     printf("7. Exit\n");
+     printf("7. Save Bed Status to File\n");
+     printf("8. Save Patient Records to File\n");
+     printf("9. Exit\n");
 
 
      printf("\nEnter your choice: ");
 
-     while(scanf("%d", &choice) !=1 || choice < 1 || choice > 7){
+     while(scanf("%d", &choice) !=1 || choice < 1 || choice > 9){
         printf("\nInvalid Input\n");
 
         while (getchar()!='\n');
@@ -72,7 +75,17 @@ int main()
                  {
                     getchar();
 
-                    registerPatient(patientCount,patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays,patientBed);
+                    registerPatient(patientCount,
+                                    patientID,
+                                    patientNames,
+                                    patientAge,
+                                    patientUrgency,
+                                    patientSpecialty,
+                                    patientAdmitted,
+                                    patientWard,
+                                    patientDays,
+                                    patientBed,
+                                    bedOccupancy);
 
                     patientCount++;
 
@@ -89,10 +102,10 @@ int main()
 
             case 4:
                 displayPriorityQueue(patientOrder,
-                             patientID,
-                             patientNames,
-                             patientUrgency,
-                             patientCount);
+                                     patientID,
+                                     patientNames,
+                                     patientUrgency,
+                                     patientCount);
                 break;
 
             case 5:
@@ -131,19 +144,35 @@ int main()
 
             case 6:
                 displayPerformanceReport(patientCount,
-                             patientID,
-                             patientNames,
-                             patientAge,
-                             patientUrgency,
-                             patientSpecialty,
-                             patientAdmitted,
-                             patientWard,
-                             patientDays,
-                             bedOccupancy);
+                                         patientID,
+                                         patientNames,
+                                         patientAge,
+                                         patientUrgency,
+                                         patientSpecialty,
+                                         patientAdmitted,
+                                         patientWard,
+                                         patientDays,
+                                         bedOccupancy);
             break;
 
-
             case 7:
+                 saveBedStatus(bedOccupancy);
+                 break;
+
+            case 8:
+                 savePatientRecords(patientCount,
+                                    patientID,
+                                    patientNames,
+                                    patientAge,
+                                    patientUrgency,
+                                    patientSpecialty,
+                                    patientAdmitted,
+                                    patientWard,
+                                    patientBed,
+                                    patientDays);
+                 break;
+
+             case 9:
                 printf("\nThank you for using Smart Hospital System.\n");
                 break;
 
@@ -151,69 +180,7 @@ int main()
                 printf("\nInvalid choice. Please try again.\n");
         }
 
-    } while (choice != 7);
-
-    printf("\n--- Waiting Time Test ---\n");
-
-    printf("\n");
-
-    printf("Cardiology queue: %d patients\n", specialtyQueueCount[2]);
-
-    printf("Estimated waiting time: %.2f minutes\n",calculateWaitingTime(2, specialtyQueueCount[2]));
-
-    specialtyQueueCount[2]++;
-
-    printf("Cardiology queue after registration: %d patients\n",specialtyQueueCount[2]);
-
-    printf("Next estimated waiting time: %.2f minutes\n",calculateWaitingTime(2, specialtyQueueCount[2]));
-
-    printf("\n--- Emergency Surcharge Test ---\n");
-
-    printf("\n");
-
-    printf("Normal surcharge: LKR %.2f\n",
-       calculateEmergencySurcharge(2, 1));
-
-    printf("Urgent surcharge: LKR %.2f\n",
-       calculateEmergencySurcharge(2, 2));
-
-    printf("Critical surcharge: LKR %.2f\n",
-       calculateEmergencySurcharge(2, 3));
-
-    printf("\n--- Ward Cost Test ---\n");
-
-    printf("\n");
-
-    printf("General Ward, 2 days: LKR %.2f\n",
-       calculateWardCost(0, 2));
-
-    printf("ICU, 2 days: LKR %.2f\n",
-       calculateWardCost(3, 2));
-
-    printf("Not admitted: LKR %.2f\n",
-       calculateWardCost(-1, 0));
-
-    printf("\n--- Complete Billing Test ---\n");
-
-    printf("\n");
-
-    float baseFee = 4500.00;
-    float surcharge = 2250.00;
-    float wardCost = 50000.00;
-    int age = 70;
-
-    float grossTotal = calculateGrossTotal(baseFee, surcharge, wardCost);
-
-    float subsidy = calculateAgeSubsidy(grossTotal, age);
-
-    float finalPayable = calculateFinalPayable(grossTotal, subsidy);
-
-    printf("Base Fee: LKR %.2f\n", baseFee);
-    printf("Emergency Surcharge: LKR %.2f\n", surcharge);
-    printf("Ward Cost: LKR %.2f\n", wardCost);
-    printf("Gross Total: LKR %.2f\n", grossTotal);
-    printf("Age Subsidy: LKR %.2f\n", subsidy);
-    printf("Final Payable: LKR %.2f\n", finalPayable);
+    } while (choice != 9);
 
     return 0;
 

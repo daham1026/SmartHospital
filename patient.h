@@ -22,6 +22,7 @@ void registerPatient(int patientIndex,
                      int patientAdmitted[],
                      int patientWard[],
                      int patientDays[],
-                     int patientBed[]);
+                     int patientBed[],
+                     int bedOccupancy[4][20]);
 
 #endif

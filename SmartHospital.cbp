@@ -39,6 +39,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="billing.h" />
+		<Unit filename="file_handling.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="file_handling.h" />
 		<Unit filename="hospital_data.c">
 			<Option compilerVar="CC" />
 		</Unit>

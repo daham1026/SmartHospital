@@ -4,6 +4,7 @@
 #include "patient.h"
 #include "billing.h"
 #include "sorting.h"
+#include "reports.h"
 
 int main()
 {
@@ -42,7 +43,8 @@ int main()
      printf("3. Register Patient\n");
      printf("4. Display Patient Priority Queue\n");
      printf("5. Display Patient Bill\n");
-     printf("6. Exit\n");
+     printf("6. Display Performance Report\n");
+     printf("7. Exit\n");
 
      printf("\nEnter your choice: ");
       scanf("%d", &choice);
@@ -120,6 +122,20 @@ int main()
                 break;
 
             case 6:
+                displayPerformanceReport(patientCount,
+                             patientID,
+                             patientNames,
+                             patientAge,
+                             patientUrgency,
+                             patientSpecialty,
+                             patientAdmitted,
+                             patientWard,
+                             patientDays,
+                             bedOccupancy);
+            break;
+
+
+            case 7:
                 printf("\nThank you for using Smart Hospital System.\n");
                 break;
 
@@ -127,7 +143,7 @@ int main()
                 printf("\nInvalid choice. Please try again.\n");
         }
 
-    } while (choice != 6);
+    } while (choice != 7);
 
     printf("\n--- Waiting Time Test ---\n");
 

@@ -5,7 +5,7 @@
 
 1789911648 c:\users\daham\documents\smarthospitalproject\smarthospital\hospital_data.h
 
-1789917274 source:c:\users\daham\documents\smarthospitalproject\smarthospital\main.c
+1789919614 source:c:\users\daham\documents\smarthospitalproject\smarthospital\main.c
 	<stdio.h>
 	"hospital_data.h"
 	"bed.h"
@@ -24,7 +24,7 @@
 	"billing.h"
 	"hospital_data.h"
 
-1789905669 source:c:\users\daham\documents\smarthospitalproject\smarthospital\patient.c
+1789920811 source:c:\users\daham\documents\smarthospitalproject\smarthospital\patient.c
 	<stdio.h>
 	"patient.h"
 	"hospital_data.h"

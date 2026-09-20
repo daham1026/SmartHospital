@@ -51,25 +51,52 @@ void registerPatient(int patientIndex,
     fgets(patientNames[patientIndex], 50, stdin);
 
     printf("Patient Age: ");
-    scanf("%d", &patientAge[patientIndex]);
 
-    printf("Urgency Level (1 = Normal, 2 = Urgent, 3 = Critical): ");
-    scanf("%d", &patientUrgency[patientIndex]);
+    while (scanf("%d", &patientAge[patientIndex]) != 1 || patientAge[patientIndex] < 0 || patientAge[patientIndex] > 120)
+    {
+    printf("\nInvalid age\n\n");
+    printf("Patient Age: ");
+
+    while (getchar() != '\n');
+    }
 
     printf("Specialty ID (1-4): ");
-    scanf("%d", &patientSpecialty[patientIndex]);
+    while(scanf("%d", &patientSpecialty[patientIndex]) !=1 || patientSpecialty[patientIndex] < 1 || patientSpecialty[patientIndex] > 4){
+    printf("\nInvalid specialty ID\n\n");
+     while(getchar() !='\n');
+
+    printf("Specialty ID (1-4): ");
+    }
 
     printf("Is the patient admitted to a ward? (1 = Yes, 0 = No): ");
-    scanf("%d", &patientAdmitted[patientIndex]);
+    while (scanf("%d", &patientAdmitted[patientIndex]) !=1 || patientAdmitted[patientIndex] != 1 && patientAdmitted[patientIndex] != 1)
+   {
+    printf("\nInvalid choice.\n\n");
+      while(getchar() !='\n');
+    printf("Is the patient admitted to a ward? (1 = Yes, 0 = No): ");
+   }
 
     if (patientAdmitted[patientIndex] == 1)
     {
-        printf("Ward ID (1-4): ");
-        scanf("%d", &patientWard[patientIndex]);
+    printf("Ward ID (1-4): ");
 
-        printf("Days Admitted: ");
-        scanf("%d", &patientDays[patientIndex]);
+    while (scanf("%d", &patientWard[patientIndex]) !=1 || patientWard[patientIndex] < 1 || patientWard[patientIndex] > 4)
+    {
+        printf("\nInvalid ward ID.\n\n");
+        while(getchar() !='\n');
+
+        printf("Ward ID (1-4): ");
     }
+
+    printf("Days Admitted: ");
+    while ( scanf("%d", &patientDays[patientIndex])!=1 || patientDays[patientIndex] < 1 || patientDays[patientIndex] > 365)
+    {
+        printf("\nInvalid number of days.\n\n ");
+          while(getchar() !='\n');
+         printf("Days Admitted: ");
+    }
+}
+
     else
     {
         patientWard[patientIndex] = -1;

@@ -46,8 +46,16 @@ int main()
      printf("6. Display Performance Report\n");
      printf("7. Exit\n");
 
+
      printf("\nEnter your choice: ");
-      scanf("%d", &choice);
+
+     while(scanf("%d", &choice) !=1 || choice < 1 || choice > 7){
+        printf("\nInvalid Input\n");
+
+        while (getchar()!='\n');
+
+        printf("\nEnter your choice: ");
+     }
 
         switch (choice)
         {

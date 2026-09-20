@@ -19,23 +19,102 @@ int main()
     int patientDays[MAX_PATIENTS];
     int patientBed[MAX_PATIENTS];
 
-
-    printf(" ===============================================\n");
-    printf("|            SMART HOSPITAL SYSTEM             |\n");
-    printf(" ===============================================\n");
-    printf("\n");
+    int patientCount = 0;
+    int choice;
+    int patientIndex;
 
     initializeBeds(bedOccupancy);
 
     initializePatients(patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays,patientBed);
 
-    displayHospitalInformation();
+  do
+  {
+    printf(" ===============================================\n");
+    printf("|            SMART HOSPITAL SYSTEM             |\n");
+    printf(" ===============================================\n");
+    printf("\n");
 
-    displayBedStatus(bedOccupancy);
+     printf("1. Display Hospital Information\n");
+     printf("2. Display Bed Status\n");
+     printf("3. Register Patient\n");
+     printf("4. Display Patient Bill\n");
+     printf("5. Exit\n");
 
-    registerPatient(0,patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays,patientBed);
+     printf("\nEnter your choice: ");
+      scanf("%d", &choice);
 
-    printf("\n--- Waiting Time Test ---\n");
+        switch (choice)
+        {
+            case 1:
+                 displayHospitalInformation();
+                 break;
+
+            case 2:
+                 displayBedStatus(bedOccupancy);
+                 break;
+
+            case 3:
+                 if (patientCount < MAX_PATIENTS)
+                 {
+                    getchar();
+                 //ATTENTION
+
+                    registerPatient(patientCount,patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays,patientBed);
+
+                    patientCount++;
+                 }
+                  else
+                {
+                    printf("\nMaximum number of patients reached.\n");
+                }
+
+                break;
+
+            case 4:
+                if (patientCount == 0)
+                {
+                    printf("\nNo patients have been registered yet.\n");
+                }
+                else
+                {
+                    printf("\nEnter patient number (1-%d): ", patientCount);
+                    scanf("%d", &patientIndex);
+
+                    if (patientIndex >= 1 && patientIndex <= patientCount)
+                    {
+                        displayPatientBill(patientIndex - 1,
+                                            patientID,
+                                            patientNames,
+                                            patientAge,
+                                            patientUrgency,
+                                            patientSpecialty,
+                                            patientAdmitted,
+                                            patientWard,
+                                            patientBed,
+                                            patientDays);
+                    }
+                    else
+                    {
+                        printf("\nInvalid patient number.\n");
+                    }
+                }
+
+                break;
+
+            case 5:
+                printf("\nThank you for using Smart Hospital System.\n");
+                break;
+
+            default:
+                printf("\nInvalid choice. Please try again.\n");
+        }
+
+    } while (choice != 5);
+
+    return 0;
+
+
+    /*printf("\n--- Waiting Time Test ---\n");
 
     printf("\n");
 
@@ -97,6 +176,6 @@ int main()
     printf("Age Subsidy: LKR %.2f\n", subsidy);
     printf("Final Payable: LKR %.2f\n", finalPayable);
 
-    return 0;
+    return 0;*/
 
 }

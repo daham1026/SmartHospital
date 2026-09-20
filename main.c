@@ -56,6 +56,16 @@ int main()
     printf("Critical surcharge: LKR %.2f\n",
        calculateEmergencySurcharge(2, 3));
 
+    printf("\n--- Ward Cost Test ---\n");
+
+    printf("General Ward, 2 days: LKR %.2f\n",
+       calculateWardCost(0, 2));
+
+    printf("ICU, 2 days: LKR %.2f\n",
+       calculateWardCost(3, 2));
+
+    printf("Not admitted: LKR %.2f\n",
+       calculateWardCost(-1, 0));
 
     return 0;
 

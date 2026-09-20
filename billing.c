@@ -23,3 +23,13 @@ float calculateEmergencySurcharge(int specialty, int urgency)
 
     return 0;
 }
+
+float calculateWardCost(int ward, int days)
+{
+    if (ward == -1)
+    {
+        return 0;
+    }
+
+    return days * wardCosts[ward];
+}

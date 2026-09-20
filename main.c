@@ -40,8 +40,9 @@ int main()
      printf("1. Display Hospital Information\n");
      printf("2. Display Bed Status\n");
      printf("3. Register Patient\n");
-     printf("4. Display Patient Bill\n");
-     printf("5. Exit\n");
+     printf("4. Display Patient Priority Queue\n");
+     printf("5. Display Patient Bill\n");
+     printf("6. Exit\n");
 
      printf("\nEnter your choice: ");
       scanf("%d", &choice);
@@ -65,23 +66,10 @@ int main()
 
                     patientCount++;
 
-                    //test
-
                     sortPatientsByPriority(patientOrder,
                                             patientUrgency,
                                             patientCount);
-
-                printf("\nCurrent Priority Order:\n");
-
-                for (patientIndex = 0; patientIndex < patientCount; patientIndex++)
-                {
-                    printf("Patient ID: PAT-%d - Urgency Level: %d\n",
-                                    patientID[patientOrder[patientIndex]],
-                                    patientUrgency[patientOrder[patientIndex]]);
-                }
                  }
-
-                 //
                   else
                 {
                     printf("\nMaximum number of patients reached.\n");
@@ -90,6 +78,14 @@ int main()
                 break;
 
             case 4:
+                displayPriorityQueue(patientOrder,
+                             patientID,
+                             patientNames,
+                             patientUrgency,
+                             patientCount);
+                break;
+
+            case 5:
                 if (patientCount == 0)
                 {
                     printf("\nNo patients have been registered yet.\n");
@@ -123,7 +119,7 @@ int main()
 
                 break;
 
-            case 5:
+            case 6:
                 printf("\nThank you for using Smart Hospital System.\n");
                 break;
 
@@ -131,7 +127,7 @@ int main()
                 printf("\nInvalid choice. Please try again.\n");
         }
 
-    } while (choice != 5);
+    } while (choice != 6);
 
     printf("\n--- Waiting Time Test ---\n");
 

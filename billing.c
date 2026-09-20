@@ -66,9 +66,9 @@ void displayPatientBill(int patientIndex,
                         int patientBed[],
                         int patientDays[])
 {
-    printf("\n====================================================\n");
+    printf("\n----------------------------------------------------\n");
     printf("          SMART HOSPITAL ADMISSION & BILL\n");
-    printf("====================================================\n");
+    printf("----------------------------------------------------\n");
 
     printf("Patient ID          : PAT-%d\n", patientID[patientIndex]);
     printf("Patient Name        : %s", patientNames[patientIndex]);

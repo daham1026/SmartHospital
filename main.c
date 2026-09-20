@@ -22,6 +22,7 @@ int main()
     int patientDays[MAX_PATIENTS];
     int patientBed[MAX_PATIENTS];
     int patientOrder[MAX_PATIENTS];
+    int patientWaitingTime[MAX_PATIENTS];
 
     int patientCount = 0;
     int choice;
@@ -30,7 +31,7 @@ int main()
 
     initializeBeds(bedOccupancy);
 
-    initializePatients(patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays,patientBed);
+    initializePatients(patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays,patientBed,patientWaitingTime);
 
   do
   {
@@ -87,6 +88,11 @@ int main()
                                     patientBed,
                                     bedOccupancy);
 
+                    patientWaitingTime[patientCount] = calculateWaitingTime(patientSpecialty[patientCount], specialtyQueueCount[patientSpecialty[patientCount] - 1]);
+
+                    specialtyQueueCount[patientSpecialty[patientCount] - 1]++;
+
+
                     patientCount++;
 
                     sortPatientsByPriority(patientOrder,
@@ -116,7 +122,14 @@ int main()
                 else
                 {
                     printf("\nEnter patient ID PAT-: ");
-                    scanf("%d", &tempPatientID);
+                    while (scanf("%d", &tempPatientID) != 1)
+                    {
+                        printf("Invalid patient ID.\n");
+
+                        while (getchar() != '\n');
+
+                    printf("Enter patient ID PAT-: ");
+                    }
 
                     patientIndex=tempPatientID-1001+1;
 
@@ -132,7 +145,8 @@ int main()
                                             patientAdmitted,
                                             patientWard,
                                             patientBed,
-                                            patientDays);
+                                            patientDays,
+                                            patientWaitingTime);
                     }
                     else
                     {

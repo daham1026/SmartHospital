@@ -74,7 +74,7 @@ void savePatientRecords(int patientCount,
     {
         fprintf(file, "\nPatient ID: PAT-%d\n",patientID[i]);
 
-        fprintf(file, "Name: %s",patientNames[i]);
+        fprintf(file, "Name: %s\n",patientNames[i]);
 
         fprintf(file, "Age: %d\n",patientAge[i]);
 

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "patient.h"
 #include "hospital_data.h"
 #include "bed.h"
@@ -11,7 +12,8 @@ void initializePatients(int patientID[],
                         int patientAdmitted[],
                         int patientWard[],
                         int patientDays[],
-                        int patientBed[])
+                        int patientBed[],
+                        int patientWaitingTime[])
 {
     int i;
 
@@ -27,6 +29,7 @@ void initializePatients(int patientID[],
         patientWard[i] = -1;
         patientDays[i] = 0;
         patientBed[i] = -1;
+        patientWaitingTime[i] = 0;
 
     }
 }
@@ -52,15 +55,29 @@ void registerPatient(int patientIndex,
     printf("Patient Name: ");
     fgets(patientNames[patientIndex], 50, stdin);
 
+    patientNames[patientIndex][strcspn(patientNames[patientIndex], "\n")] = '\0';
+
     printf("Patient Age: ");
 
     while (scanf("%d", &patientAge[patientIndex]) != 1 || patientAge[patientIndex] < 0 || patientAge[patientIndex] > 120)
     {
     printf("\nInvalid age\n\n");
-    printf("Patient Age: ");
 
     while (getchar() != '\n');
+
+    printf("Patient Age: ");
     }
+
+    printf("Urgency Level (1=Normal, 2=Urgent, 3=Critical): ");
+
+    while (scanf("%d", &patientUrgency[patientIndex]) != 1 || patientUrgency[patientIndex] < 1 || patientUrgency[patientIndex] > 3)
+{
+    printf("\nInvalid urgency level.\n\n");
+
+    while (getchar() != '\n');
+
+    printf("Urgency Level (1=Normal, 2=Urgent, 3=Critical): ");
+}
 
     printf("Specialty ID (1-4): ");
     while(scanf("%d", &patientSpecialty[patientIndex]) !=1 || patientSpecialty[patientIndex] < 1 || patientSpecialty[patientIndex] > 4){

@@ -57,11 +57,11 @@ void displayPerformanceReport(int patientCount,
 
         baseFee = specialtyFees[patientSpecialty[i] - 1];
 
-        surcharge = calculateEmergencySurcharge(patientSpecialty[i] - 1,patientUrgency[i]);
+        surcharge = calculateEmergencySurcharge(patientSpecialty[i],patientUrgency[i]);
 
         if (patientAdmitted[i] == 1)
         {
-            wardCost = calculateWardCost(patientWard[i] - 1,patientDays[i]);
+            wardCost = calculateWardCost(patientWard[i],patientDays[i]);
         }
         else
         {
@@ -132,7 +132,7 @@ void displayPerformanceReport(int patientCount,
     {
         printf("Patient ID   : PAT-%d\n",1001 + highestPatientIndex);
 
-        printf("Patient Name : %s",patientNames[highestPatientIndex]);
+        printf("Patient Name : %s\n",patientNames[highestPatientIndex]);
 
         printf("Bill         : LKR %.2f\n",highestBill);
     }

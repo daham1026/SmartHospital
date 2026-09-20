@@ -1,7 +1,7 @@
 #ifndef BILLING_H
 #define BILLING_H
 
-float calculateWaitingTime(int specialty, int queueCount);
+int calculateWaitingTime(int specialty, int queueCount);
 
 float calculateEmergencySurcharge(int specialty, int urgency);
 
@@ -22,6 +22,7 @@ void displayPatientBill(int patientIndex,
                         int patientAdmitted[],
                         int patientWard[],
                         int patientBed[],
-                        int patientDays[]);
+                        int patientDays[],
+                        int patientWaitingTime[]);
 
 #endif

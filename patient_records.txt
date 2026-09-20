@@ -1,2 +1,12 @@
 SMART HOSPITAL PATIENT RECORDS
 
+
+Patient ID: PAT-1001
+Name: daham
+Age: 23
+Urgency Level: 0
+Specialty ID: 2
+Admitted: Yes
+Ward ID: 3
+Bed Number: 1
+Days Admitted: 2

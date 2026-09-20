@@ -7,8 +7,7 @@ void initializePatients(int patientID[],
                         int patientAge[],
                         int patientUrgency[],
                         int patientSpecialty[],
-                        int patientAdmitted[],
-                        int patientWard[],
+                        int patientAdmitted[],int patientWard[],
                         int patientDays[])
 {
     int i;

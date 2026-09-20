@@ -2,10 +2,12 @@
 #include "hospital_data.h"
 #include "bed.h"
 #include "patient.h"
+#include "billing.h"
 
 int main()
 {
     int bedOccupancy[4][20];
+    int specialtyQueueCount[4] = {0, 0, 0, 0};
 
     int patientID[MAX_PATIENTS];
     char patientNames[MAX_PATIENTS][50];
@@ -20,32 +22,30 @@ int main()
     printf("             SMART HOSPITAL SYSTEM\n");
     printf("===============================================\n");
     printf("\n");
-    printf("System is starting...\n");
 
     initializeBeds(bedOccupancy);
 
-    initializePatients(patientID,
-                       patientNames,
-                       patientAge,
-                       patientUrgency,
-                       patientSpecialty,
-                       patientAdmitted,
-                       patientWard,
-                       patientDays);
+    initializePatients(patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays);
 
     displayHospitalInformation();
 
     displayBedStatus(bedOccupancy);
 
-    registerPatient(0,
-                    patientID,
-                    patientNames,
-                    patientAge,
-                    patientUrgency,
-                    patientSpecialty,
-                    patientAdmitted,
-                    patientWard,
-                    patientDays);
+    registerPatient(0,patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays);
+
+    printf("\n--- Waiting Time Test ---\n");
+
+    printf("Cardiology queue: %d patients\n", specialtyQueueCount[2]);
+
+    printf("Estimated waiting time: %.2f minutes\n",calculateWaitingTime(2, specialtyQueueCount[2]));
+
+    specialtyQueueCount[2]++;
+
+    printf("Cardiology queue after registration: %d patients\n",specialtyQueueCount[2]);
+
+    printf("Next estimated waiting time: %.2f minutes\n",calculateWaitingTime(2, specialtyQueueCount[2]));
+
 
     return 0;
+
 }

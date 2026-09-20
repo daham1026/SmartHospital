@@ -10,7 +10,8 @@ void initializePatients(int patientID[],
                         int patientSpecialty[],
                         int patientAdmitted[],
                         int patientWard[],
-                        int patientDays[]);
+                        int patientDays[],
+                        int patientBed[]);
 
 void registerPatient(int patientIndex,
                      int patientID[],
@@ -20,6 +21,7 @@ void registerPatient(int patientIndex,
                      int patientSpecialty[],
                      int patientAdmitted[],
                      int patientWard[],
-                     int patientDays[]);
+                     int patientDays[],
+                     int patientBed[]);
 
 #endif

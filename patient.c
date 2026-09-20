@@ -7,10 +7,13 @@ void initializePatients(int patientID[],
                         int patientAge[],
                         int patientUrgency[],
                         int patientSpecialty[],
-                        int patientAdmitted[],int patientWard[],
-                        int patientDays[])
+                        int patientAdmitted[],
+                        int patientWard[],
+                        int patientDays[],
+                        int patientBed[])
 {
     int i;
+
 
     for (i = 0; i < MAX_PATIENTS; i++)
     {
@@ -22,6 +25,8 @@ void initializePatients(int patientID[],
         patientAdmitted[i] = 0;
         patientWard[i] = -1;
         patientDays[i] = 0;
+        patientBed[i] = -1;
+
     }
 }
 
@@ -33,11 +38,14 @@ void registerPatient(int patientIndex,
                      int patientSpecialty[],
                      int patientAdmitted[],
                      int patientWard[],
-                     int patientDays[])
+                     int patientDays[],
+                     int patientBed[])
 {
     patientID[patientIndex] = 1001 + patientIndex;
 
     printf("\n--- Patient Registration ---\n");
+
+    printf("\n");
 
     printf("Patient Name: ");
     fgets(patientNames[patientIndex], 50, stdin);

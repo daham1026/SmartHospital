@@ -5,23 +5,24 @@
 
 1789726245 c:\users\daham\documents\smarthospitalproject\smarthospital\hospital_data.h
 
-1789896685 source:c:\users\daham\documents\smarthospitalproject\smarthospital\main.c
+1789905503 source:c:\users\daham\documents\smarthospitalproject\smarthospital\main.c
 	<stdio.h>
 	"hospital_data.h"
 	"bed.h"
 	"patient.h"
 	"billing.h"
 
-1789826208 source:c:\users\daham\documents\smarthospitalproject\smarthospital\bed.c
+1789904359 source:c:\users\daham\documents\smarthospitalproject\smarthospital\bed.c
 	<stdio.h>
 	"bed.h"
 	"hospital_data.h"
 
-1789896285 source:c:\users\daham\documents\smarthospitalproject\smarthospital\billing.c
+1789905503 source:c:\users\daham\documents\smarthospitalproject\smarthospital\billing.c
+	<stdio.h>
 	"billing.h"
 	"hospital_data.h"
 
-1789887052 source:c:\users\daham\documents\smarthospitalproject\smarthospital\patient.c
+1789905669 source:c:\users\daham\documents\smarthospitalproject\smarthospital\patient.c
 	<stdio.h>
 	"patient.h"
 	"hospital_data.h"
@@ -32,7 +33,7 @@
 
 1789826208 c:\users\daham\documents\smarthospitalproject\smarthospital\bed.h
 
-1789847692 c:\users\daham\documents\smarthospitalproject\smarthospital\patient.h
+1789905523 c:\users\daham\documents\smarthospitalproject\smarthospital\patient.h
 
-1789896285 c:\users\daham\documents\smarthospitalproject\smarthospital\billing.h
+1789905503 c:\users\daham\documents\smarthospitalproject\smarthospital\billing.h
 

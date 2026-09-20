@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "billing.h"
 #include "hospital_data.h"
 
@@ -52,4 +53,42 @@ float calculateAgeSubsidy(float grossTotal, int age)
 float calculateFinalPayable(float grossTotal, float subsidy)
 {
     return grossTotal - subsidy;
+}
+
+void displayPatientBill(int patientIndex,
+                        int patientID[],
+                        char patientNames[][50],
+                        int patientAge[],
+                        int patientUrgency[],
+                        int patientSpecialty[],
+                        int patientAdmitted[],
+                        int patientWard[],
+                        int patientBed[],
+                        int patientDays[])
+{
+    printf("\n====================================================\n");
+    printf("          SMART HOSPITAL ADMISSION & BILL\n");
+    printf("====================================================\n");
+
+    printf("Patient ID : PAT-%d\n", patientID[patientIndex]);
+    printf("Patient Name : %s", patientNames[patientIndex]);
+    printf("Age : %d Years\n", patientAge[patientIndex]);
+
+    printf("Specialty ID : %d\n", patientSpecialty[patientIndex]);
+
+    if (patientAdmitted[patientIndex] == 1)
+    {
+        printf("Ward ID : %d\n", patientWard[patientIndex]);
+        printf("Bed Number : %d\n", patientBed[patientIndex]);
+        printf("Days Admitted : %d\n", patientDays[patientIndex]);
+    }
+    else
+    {
+        printf("Ward : Not Admitted\n");
+        printf("Bed : Not Applicable\n");
+    }
+
+    printf("Urgency Level : %d\n", patientUrgency[patientIndex]);
+
+    printf("====================================================\n");
 }

@@ -17,6 +17,8 @@ int main()
     int patientAdmitted[MAX_PATIENTS];
     int patientWard[MAX_PATIENTS];
     int patientDays[MAX_PATIENTS];
+    int patientBed[MAX_PATIENTS];
+
 
     printf(" ===============================================\n");
     printf("|            SMART HOSPITAL SYSTEM             |\n");
@@ -25,15 +27,17 @@ int main()
 
     initializeBeds(bedOccupancy);
 
-    initializePatients(patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays);
+    initializePatients(patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays,patientBed);
 
     displayHospitalInformation();
 
     displayBedStatus(bedOccupancy);
 
-    registerPatient(0,patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays);
+    registerPatient(0,patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays,patientBed);
 
     printf("\n--- Waiting Time Test ---\n");
+
+    printf("\n");
 
     printf("Cardiology queue: %d patients\n", specialtyQueueCount[2]);
 
@@ -47,6 +51,8 @@ int main()
 
     printf("\n--- Emergency Surcharge Test ---\n");
 
+    printf("\n");
+
     printf("Normal surcharge: LKR %.2f\n",
        calculateEmergencySurcharge(2, 1));
 
@@ -58,6 +64,8 @@ int main()
 
     printf("\n--- Ward Cost Test ---\n");
 
+    printf("\n");
+
     printf("General Ward, 2 days: LKR %.2f\n",
        calculateWardCost(0, 2));
 
@@ -68,6 +76,8 @@ int main()
        calculateWardCost(-1, 0));
 
     printf("\n--- Complete Billing Test ---\n");
+
+    printf("\n");
 
     float baseFee = 4500.00;
     float surcharge = 2250.00;

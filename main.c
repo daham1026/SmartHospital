@@ -45,6 +45,17 @@ int main()
 
     printf("Next estimated waiting time: %.2f minutes\n",calculateWaitingTime(2, specialtyQueueCount[2]));
 
+    printf("\n--- Emergency Surcharge Test ---\n");
+
+    printf("Normal surcharge: LKR %.2f\n",
+       calculateEmergencySurcharge(2, 1));
+
+    printf("Urgent surcharge: LKR %.2f\n",
+       calculateEmergencySurcharge(2, 2));
+
+    printf("Critical surcharge: LKR %.2f\n",
+       calculateEmergencySurcharge(2, 3));
+
 
     return 0;
 

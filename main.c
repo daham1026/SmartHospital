@@ -18,9 +18,9 @@ int main()
     int patientWard[MAX_PATIENTS];
     int patientDays[MAX_PATIENTS];
 
-    printf("===============================================\n");
-    printf("             SMART HOSPITAL SYSTEM\n");
-    printf("===============================================\n");
+    printf(" ===============================================\n");
+    printf("|            SMART HOSPITAL SYSTEM             |\n");
+    printf(" ===============================================\n");
     printf("\n");
 
     initializeBeds(bedOccupancy);
@@ -66,6 +66,26 @@ int main()
 
     printf("Not admitted: LKR %.2f\n",
        calculateWardCost(-1, 0));
+
+    printf("\n--- Complete Billing Test ---\n");
+
+    float baseFee = 4500.00;
+    float surcharge = 2250.00;
+    float wardCost = 50000.00;
+    int age = 70;
+
+    float grossTotal = calculateGrossTotal(baseFee, surcharge, wardCost);
+
+    float subsidy = calculateAgeSubsidy(grossTotal, age);
+
+    float finalPayable = calculateFinalPayable(grossTotal, subsidy);
+
+    printf("Base Fee: LKR %.2f\n", baseFee);
+    printf("Emergency Surcharge: LKR %.2f\n", surcharge);
+    printf("Ward Cost: LKR %.2f\n", wardCost);
+    printf("Gross Total: LKR %.2f\n", grossTotal);
+    printf("Age Subsidy: LKR %.2f\n", subsidy);
+    printf("Final Payable: LKR %.2f\n", finalPayable);
 
     return 0;
 

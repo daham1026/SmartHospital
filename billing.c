@@ -33,3 +33,23 @@ float calculateWardCost(int ward, int days)
 
     return days * wardCosts[ward];
 }
+
+float calculateGrossTotal(float baseFee, float surcharge, float wardCost)
+{
+    return baseFee + surcharge + wardCost;
+}
+
+float calculateAgeSubsidy(float grossTotal, int age)
+{
+    if (age < 5 || age > 65)
+    {
+        return grossTotal * 0.15;
+    }
+
+    return 0;
+}
+
+float calculateFinalPayable(float grossTotal, float subsidy)
+{
+    return grossTotal - subsidy;
+}

@@ -32,7 +32,7 @@ void displayHospitalInformation()
     printf("\n--- Hospital Wards ---\n");
     printf("\n");
     printf("___________________________________________________________\n");
-    printf("ID  |   SPECIALITY     |      FEE         | NUMBER OF BEDS \n");
+    printf("ID  |      WARD        |      FEE         | NUMBER OF BEDS \n");
     printf("-----------------------------------------------------------\n");
 
 

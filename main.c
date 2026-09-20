@@ -3,6 +3,7 @@
 #include "bed.h"
 #include "patient.h"
 #include "billing.h"
+#include "sorting.h"
 
 int main()
 {
@@ -18,10 +19,12 @@ int main()
     int patientWard[MAX_PATIENTS];
     int patientDays[MAX_PATIENTS];
     int patientBed[MAX_PATIENTS];
+    int patientOrder[MAX_PATIENTS];
 
     int patientCount = 0;
     int choice;
     int patientIndex;
+    int tempPatientID;
 
     initializeBeds(bedOccupancy);
 
@@ -29,7 +32,7 @@ int main()
 
   do
   {
-    printf(" ===============================================\n");
+    printf("\n ===============================================\n");
     printf("|            SMART HOSPITAL SYSTEM             |\n");
     printf(" ===============================================\n");
     printf("\n");
@@ -57,12 +60,28 @@ int main()
                  if (patientCount < MAX_PATIENTS)
                  {
                     getchar();
-                 //ATTENTION
 
                     registerPatient(patientCount,patientID,patientNames,patientAge,patientUrgency,patientSpecialty,patientAdmitted,patientWard,patientDays,patientBed);
 
                     patientCount++;
+
+                    //test
+
+                    sortPatientsByPriority(patientOrder,
+                                            patientUrgency,
+                                            patientCount);
+
+                printf("\nCurrent Priority Order:\n");
+
+                for (patientIndex = 0; patientIndex < patientCount; patientIndex++)
+                {
+                    printf("Patient ID: PAT-%d - Urgency Level: %d\n",
+                                    patientID[patientOrder[patientIndex]],
+                                    patientUrgency[patientOrder[patientIndex]]);
+                }
                  }
+
+                 //
                   else
                 {
                     printf("\nMaximum number of patients reached.\n");
@@ -77,8 +96,11 @@ int main()
                 }
                 else
                 {
-                    printf("\nEnter patient number (1-%d): ", patientCount);
-                    scanf("%d", &patientIndex);
+                    printf("\nEnter patient ID PAT-: ");
+                    scanf("%d", &tempPatientID);
+
+                    patientIndex=tempPatientID-1001+1;
+
 
                     if (patientIndex >= 1 && patientIndex <= patientCount)
                     {
@@ -111,10 +133,7 @@ int main()
 
     } while (choice != 5);
 
-    return 0;
-
-
-    /*printf("\n--- Waiting Time Test ---\n");
+    printf("\n--- Waiting Time Test ---\n");
 
     printf("\n");
 
@@ -176,6 +195,6 @@ int main()
     printf("Age Subsidy: LKR %.2f\n", subsidy);
     printf("Final Payable: LKR %.2f\n", finalPayable);
 
-    return 0;*/
+    return 0;
 
 }

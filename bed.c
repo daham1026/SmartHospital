@@ -31,7 +31,7 @@ void displayBedStatus(int bedOccupancy[4][20])
 
         for (j = 0; j < wardBeds[i]; j++)
         {
-            printf("Bed %d: ", j + 1);
+            printf("Bed %2d: ", j + 1);
 
             if (bedOccupancy[i][j] == 0)
             {

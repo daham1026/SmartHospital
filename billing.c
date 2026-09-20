@@ -70,25 +70,25 @@ void displayPatientBill(int patientIndex,
     printf("          SMART HOSPITAL ADMISSION & BILL\n");
     printf("====================================================\n");
 
-    printf("Patient ID : PAT-%d\n", patientID[patientIndex]);
-    printf("Patient Name : %s", patientNames[patientIndex]);
-    printf("Age : %d Years\n", patientAge[patientIndex]);
+    printf("Patient ID          : PAT-%d\n", patientID[patientIndex]);
+    printf("Patient Name        : %s", patientNames[patientIndex]);
+    printf("Age                 : %-2d Years\n", patientAge[patientIndex]);
 
-    printf("Specialty ID : %d\n", patientSpecialty[patientIndex]);
+    printf("Specialty ID        : %d\n", patientSpecialty[patientIndex]);
 
     if (patientAdmitted[patientIndex] == 1)
     {
-        printf("Ward ID : %d\n", patientWard[patientIndex]);
-        printf("Bed Number : %d\n", patientBed[patientIndex]);
-        printf("Days Admitted : %d\n", patientDays[patientIndex]);
+        printf("Ward ID             : %d\n", patientWard[patientIndex]);
+        printf("Bed Number          : %d\n", patientBed[patientIndex]);
+        printf("Days Admitted       : %d\n", patientDays[patientIndex]);
     }
     else
     {
-        printf("Ward : Not Admitted\n");
-        printf("Bed : Not Applicable\n");
+        printf("Ward                : Not Admitted\n");
+        printf("Bed                 : Not Applicable\n");
     }
 
-    printf("Urgency Level : %d\n", patientUrgency[patientIndex]);
+    printf("Urgency Level       : %d\n", patientUrgency[patientIndex]);
 
     printf("====================================================\n");
 }
